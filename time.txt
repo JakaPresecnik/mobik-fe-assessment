@@ -1,2 +1,5 @@
 20 minutes spent setting up server and connecting to client
 15 minutes spent figuring out structure and setting up routers and installing dependencies I haven't already
+20 minutes spent building structure for two main components
+20 minutes spent on sweetalert inputs for withdraw functionality
+15 minutes working on server and client on withdrawing

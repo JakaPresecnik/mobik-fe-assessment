@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { NavLink } from 'react-router-dom';
+import Withdraw from './Withdraw';
 
 function Accounts() {
     const [accounts , setAccounts] = useState({});
@@ -37,11 +39,15 @@ function Accounts() {
                     {
                         Object.keys(accounts).map(acc => (
                             <tr key={acc}>
-                                <td><button>view</button></td>
+                                <td>
+                                    <NavLink to={{pathname: '/transactionhistory', accountData: accounts[acc]}}>
+                                        <button>view</button>
+                                    </NavLink>
+                                </td>
                                 <td>{acc}</td>
                                 <td>{accounts[acc].id}</td>
                                 <td>{accounts[acc].balance}</td>
-                                <td><button>withdraw</button></td>
+                                <td><button onClick={e => Withdraw(e, acc)}>withdraw</button></td>
                                 <td><button>deposit</button></td>
                             </tr>
                         ))
