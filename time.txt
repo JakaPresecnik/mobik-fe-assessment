@@ -4,3 +4,5 @@
 20 minutes spent on sweetalert inputs for withdraw functionality
 15 minutes working on server and client on withdrawing
 30 minutes changing the state to calculate balance from transactions and fixing the server, wasted quite a lot of minutes when encountered a bug
+20 minutes added restrictions on withdraw/deposit functions and changed the placeholder data in the server accordingly
+40 minutes spent styling

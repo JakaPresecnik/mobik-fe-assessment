@@ -6,15 +6,15 @@ function TransactionHistory ({location}) {
     let balance = 0;
 
     return (
-        <div>
+        <div className="content">
             <h1>Transaction History</h1>
             <table>
                 <caption>
                     <span>{name}</span>
-                    <span>{id}</span>
+                    <span className="id">{id}</span>
                 </caption>
                 <thead>
-                    <tr>
+                    <tr className="thistory">
                         <th>balance</th>
                         <th>amount</th>
                         <th>type</th>

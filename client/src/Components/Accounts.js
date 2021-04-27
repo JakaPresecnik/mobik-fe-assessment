@@ -34,10 +34,10 @@ function Accounts() {
         });
         setLoaded(true);
         
-    }, [])
+    }, []);
 
     return !loaded ? 'loading' : (
-        <div>
+        <div className="content">
             <h1>Accounts</h1>
 
             <table>
@@ -64,8 +64,8 @@ function Accounts() {
                                 <td>{acc}</td>
                                 <td>{accounts[acc].id}</td>
                                 <td>{balance[acc]}</td>
-                                <td><button onClick={e => withdraw(e, acc)}>withdraw</button></td>
-                                <td><button onClick={e => deposit(e, acc)}>deposit</button></td>
+                                <td><button onClick={e => withdraw(acc, balance[acc], accounts[acc].limit)}>withdraw</button></td>
+                                <td><button onClick={e => deposit(acc, accounts[acc].minDeposit)}>deposit</button></td>
                             </tr>
                         ))
                     }

@@ -1,0 +1,65 @@
+$main-color: #6979F4
+$secondary-color: #5BC1F2
+$third-color: #54F59A
+
+.content
+    text-align: center
+    margin: auto
+
+    h1
+        margin-top: 0
+        padding: 0.5em
+        background-color: $main-color
+        text-transform: uppercase
+    
+    table
+        margin: auto
+        width: 80%
+        max-width: 900px
+        min-width: 400px
+        border-spacing: 0px
+        
+        caption
+            text-transform: capitalize
+            text-align: left
+            color: $secondary-color
+            font-weight: bold
+            padding-bottom: 0.5em
+            margin-bottom:0.5em
+            border-bottom: 1px solid $secondary-color
+
+            .id
+                float: right
+        
+        thead
+            background: $secondary-color
+            
+            th
+                padding: 0.3em
+                border-right: 1px solid #fff
+                text-transform: uppercase
+
+                &:first-child
+                    background: #fff
+            .thistory
+                th
+                    &:first-child
+                        background: $secondary-color
+        tbody    
+            td
+                text-transform: capitalize
+                font-size: 0.9em
+                border-left: 1px solid $secondary-color
+
+                &:first-child    
+                    border-left: none
+    button
+            padding: 0.5em
+            margin: 0.3em 0
+            background: $third-color
+            border: none
+            border-radius: 4px
+            cursor: pointer
+            text-transform: uppercase
+            font-size: 0.8em
+        

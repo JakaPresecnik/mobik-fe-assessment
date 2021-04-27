@@ -12,7 +12,8 @@ let accounts = {
     current: {
         id: 40013,
         name: "current",
-        balance: 30000.00,
+        limit: -100000.00,
+        minDeposit: 0.01,
         accountOpened: new Date(2021, 4, 01, 10, 00, 00),
         transactions: [
             {date: new Date(2021, 4, 1, 10, 00, 00), amount: 0.00},
@@ -23,7 +24,8 @@ let accounts = {
     savings: {
         id: 30078,
         name: "savings",
-        balance: 29000.00,
+        limit: 1000.00,
+        minDeposit: 1000.00,
         accountOpened: new Date(2021, 4, 01, 10, 00, 00),
         transactions: [
             {date: new Date(2021, 4, 1, 10, 00, 00), amount: 0.00},
