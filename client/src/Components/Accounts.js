@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { NavLink } from 'react-router-dom';
-import Withdraw from './Withdraw';
+import {deposit, withdraw} from './depositWithdraw';
 
 function Accounts() {
     const [accounts , setAccounts] = useState({});
+    const [balance, setBalance] = useState({})
+    const [loaded, setLoaded] = useState(false)
 
     const retrieveAccountsData = async () => {
         const res = await fetch('/api/getaccountsdata');
@@ -16,10 +18,25 @@ function Accounts() {
     }
     useEffect(() => {
         retrieveAccountsData()
-        .then(res => setAccounts(res));
+        .then(res => {
+            setAccounts(res)
+            // used this instead of more correct option I use to use, because there was a bug and I can't waste time trying to fix it.
+            let placeholderBalance = {}
+            Object.keys(res).forEach(acc => {
+                let balanceCalc = 0;
+                
+                res[acc].transactions.forEach(tr => {
+                    balanceCalc += tr.amount
+                })
+                placeholderBalance[acc] = balanceCalc;
+            })
+            setBalance(placeholderBalance);
+        });
+        setLoaded(true);
+        
     }, [])
 
-    return (
+    return !loaded ? 'loading' : (
         <div>
             <h1>Accounts</h1>
 
@@ -46,9 +63,9 @@ function Accounts() {
                                 </td>
                                 <td>{acc}</td>
                                 <td>{accounts[acc].id}</td>
-                                <td>{accounts[acc].balance}</td>
-                                <td><button onClick={e => Withdraw(e, acc)}>withdraw</button></td>
-                                <td><button>deposit</button></td>
+                                <td>{balance[acc]}</td>
+                                <td><button onClick={e => withdraw(e, acc)}>withdraw</button></td>
+                                <td><button onClick={e => deposit(e, acc)}>deposit</button></td>
                             </tr>
                         ))
                     }

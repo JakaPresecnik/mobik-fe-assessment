@@ -3,3 +3,4 @@
 20 minutes spent building structure for two main components
 20 minutes spent on sweetalert inputs for withdraw functionality
 15 minutes working on server and client on withdrawing
+30 minutes changing the state to calculate balance from transactions and fixing the server, wasted quite a lot of minutes when encountered a bug

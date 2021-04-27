@@ -49,10 +49,24 @@ app.get('/api/getaccountsdata', (req, res) => {
 
 app.post('/api/withdraw', (req, res) => {
     const {amount, account} = req.body;
+    console.log('withdraw: ', req.body)
     try {
         accounts[account].transactions.push({
             date: new Date(),
-            amount: -amount
+            amount: -amount,
+        })
+    }catch(err) {
+        console.log(err);
+    }
+})
+// I could just do it in one path, but It will take time as I would need to re-write the already written functions
+app.post('/api/deposit', (req, res) => {
+    const {amount, account} = req.body;
+    console.log('deposit: ', req.body)
+    try {
+        accounts[account].transactions.push({
+            date: new Date(),
+            amount: Number(amount)
         })
     }catch(err) {
         console.log(err);
